@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/Users/rishabh%20verma/Downloads/index_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricket Fan Card Maker</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#0f172a;color:#f1f5f9;min-height:100vh;padding:20px}
+h1{text-align:center;font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+.subtitle{text-align:center;font-size:13px;color:#94a3b8;margin-bottom:20px}
+.app{display:grid;grid-template-columns:1fr 300px;gap:20px;max-width:860px;margin:0 auto;align-items:start}
+.panel{display:flex;flex-direction:column;gap:10px;background:#1e293b;border-radius:14px;padding:16px}
+.lbl{font-size:10px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:2px}
+.field{display:flex;flex-direction:column;gap:3px}
+.field input,.field textarea{width:100%;font-family:inherit;font-size:12px;background:#0f172a;border:1px solid #334155;border-radius:8px;color:#f1f5f9;padding:7px 10px;outline:none;transition:border .15s}
+.field input:focus,.field textarea:focus{border-color:#3b82f6}
+.field textarea{resize:none;height:42px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px}
+.tbtn{padding:5px 3px;border-radius:8px;border:1px solid #334155;background:#0f172a;cursor:pointer;font-size:10px;font-weight:600;color:#94a3b8;text-align:center;transition:all .15s;font-family:inherit}
+.tbtn:hover{background:#1e293b;color:#f1f5f9}
+.tbtn.active{background:#1d4ed8;color:#fff;border-color:#3b82f6}
+.tabs{display:flex;border:1px solid #334155;border-radius:8px;overflow:hidden;margin-bottom:5px}
+.tab{flex:1;padding:5px;font-size:10px;font-weight:600;background:transparent;border:none;cursor:pointer;color:#94a3b8;font-family:inherit;transition:all .15s}
+.tab.active{background:#1d4ed8;color:#fff}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px;max-height:160px;overflow-y:auto}
+.mbtn{padding:5px 6px;border-radius:8px;border:1px solid #334155;background:#0f172a;cursor:pointer;font-size:10px;color:#94a3b8;text-align:left;line-height:1.3;font-family:inherit;transition:all .15s}
+.mbtn:hover{background:#1e293b}
+.mbtn.active{background:#14532d;color:#86efac;border-color:#22c55e}
+.mbtn b{display:block;font-size:10px}
+.mbtn span{display:block;font-size:9px;color:#64748b}
+.mbtn.active span{color:#86efac}
+.stags{display:flex;flex-wrap:wrap;gap:3px;min-height:18px}
+.stag{font-size:10px;background:#14532d;color:#86efac;padding:2px 7px;border-radius:20px;display:flex;align-items:center;gap:3px}
+.stag button{background:none;border:none;cursor:pointer;color:#86efac;font-size:13px;line-height:1;padding:0;font-family:inherit}
+.rbtn-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px}
+.rbtn{padding:5px 2px;border-radius:8px;border:1px solid #334155;background:#0f172a;cursor:pointer;font-size:9px;font-weight:600;color:#94a3b8;text-align:center;transition:all .15s;font-family:inherit}
+.rbtn:hover{background:#1e293b}
+.rbtn.active{background:#78350f;color:#fcd34d;border-color:#f59e0b}
+.cbtn-row{display:flex;gap:7px;flex-wrap:wrap}
+.cbtn{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .15s}
+.cbtn:hover{transform:scale(1.15)}
+.cbtn.active{border-color:#fff}
+.gen-btn{width:100%;padding:11px;background:#2563eb;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.gen-btn:hover{background:#1d4ed8}
+.dl-btn{width:100%;padding:9px;background:transparent;color:#f1f5f9;border:1px solid #334155;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .15s}
+.dl-btn:hover{background:#1e293b}
+.photo-area{border:2px dashed #334155;border-radius:10px;padding:10px;text-align:center;cursor:pointer;position:relative;transition:border .15s}
+.photo-area:hover{border-color:#3b82f6}
+.photo-area input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.photo-area p{font-size:10px;color:#64748b;margin-top:3px}
+#photo-preview{width:38px;height:38px;border-radius:50%;object-fit:cover;display:none;margin:0 auto 3px;border:2px solid #334155}
+.sec{font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid #334155;padding-bottom:4px}
+.card-wrap{position:sticky;top:20px;background:#1e293b;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px}
+@media(max-width:640px){.app{grid-template-columns:1fr}.card-wrap{position:static}}
+</style>
+</head>
+<body>
+<h1>🏏 Cricket Fan Card Maker</h1>
+<p class="subtitle">Create your official cricket fan card — free forever</p>
+
+<div class="app">
+<div class="panel">
+  <div class="sec">Identity</div>
+  <div class="field"><div class="lbl">Full Name</div><input type="text" id="fan-name" value="Cricket Fan"></div>
+  <div class="row2">
+    <div class="field"><div class="lbl">Fan Title</div><input type="text" id="fan-title" value="Super Fan"></div>
+    <div class="field"><div class="lbl">Jersey No.</div><input type="text" id="jersey" value="18" maxlength="3"></div>
+  </div>
+  <div class="row2">
+    <div class="field"><div class="lbl">City</div><input type="text" id="city" value="Prayagraj"></div>
+    <div class="field"><div class="lbl">Fan Since</div><input type="text" id="fan-since" value="2011"></div>
+  </div>
+  <div class="field"><div class="lbl">Favourite Player</div><input type="text" id="fav-player" value="Virat Kohli"></div>
+  <div class="row2">
+    <div class="field"><div class="lbl">Matches Watched</div><input type="text" id="matches" value="120"></div>
+    <div class="field"><div class="lbl">Stadium Visits</div><input type="text" id="stadium" value="5"></div>
+  </div>
+  <div class="field"><div class="lbl">Fan Role</div>
+    <div class="rbtn-row" id="role-grid">
+      <button class="rbtn active" data-role="Batter Fan">Batter</button>
+      <button class="rbtn" data-role="Bowler Fan">Bowler</button>
+      <button class="rbtn" data-role="All-Rounder">All-Round</button>
+      <button class="rbtn" data-role="Keeper Fan">Keeper</button>
+    </div>
+  </div>
+  <div class="field"><div class="lbl">Battle Cry</div><textarea id="fan-quote">Cricket is not just a game, it's a religion!</textarea></div>
+  <div class="field">
+    <div class="lbl">Your Photo</div>
+    <div class="photo-area">
+      <img id="photo-preview" src="file:///C:/Users/rishabh%20verma/Downloads/index_2.html" alt="Your photo">
+      <span style="font-size:22px">👤</span>
+      <p>Click to upload photo</p>
+      <input type="file" accept="image/*" id="photo-input" aria-label="Upload photo">
+    </div>
+  </div>
+
+  <div class="sec">Your Team</div>
+  <div class="tabs" id="team-tabs">
+    <button class="tab active" data-type="national">🌍 National</button>
+    <button class="tab" data-type="ipl">🏆 IPL</button>
+  </div>
+  <div id="national-teams" class="tgrid">
+    <button class="tbtn active" data-team="India" data-emoji="IND" data-color="blue">🇮🇳 India</button>
+    <button class="tbtn" data-team="Australia" data-emoji="AUS" data-color="amber">🇦🇺 AUS</button>
+    <button class="tbtn" data-team="England" data-emoji="ENG" data-color="red">🏴 ENG</button>
+    <button class="tbtn" data-team="Pakistan" data-emoji="PAK" data-color="green">🇵🇰 PAK</button>
+    <button class="tbtn" data-team="West Indies" data-emoji="WI" data-color="coral">🏏 WI</button>
+    <button class="tbtn" data-team="South Africa" data-emoji="SA" data-color="green">🇿🇦 SA</button>
+    <button class="tbtn" data-team="New Zealand" data-emoji="NZ" data-color="teal">🇳🇿 NZ</button>
+    <button class="tbtn" data-team="Sri Lanka" data-emoji="SL" data-color="blue">🇱🇰 SL</button>
+    <button class="tbtn" data-team="Bangladesh" data-emoji="BAN" data-color="green">🇧🇩 BAN</button>
+  </div>
+  <div id="ipl-teams" class="tgrid" style="display:none">
+    <button class="tbtn" data-team="Mumbai Indians" data-emoji="MI" data-color="blue">💙 MI</button>
+    <button class="tbtn" data-team="Chennai Super Kings" data-emoji="CSK" data-color="amber">💛 CSK</button>
+    <button class="tbtn" data-team="Royal Challengers" data-emoji="RCB" data-color="red">❤️ RCB</button>
+    <button class="tbtn" data-team="Kolkata Knight Riders" data-emoji="KKR" data-color="purple">💜 KKR</button>
+    <button class="tbtn" data-team="Delhi Capitals" data-emoji="DC" data-color="blue">💙 DC</button>
+    <button class="tbtn" data-team="Punjab Kings" data-emoji="PBKS" data-color="red">❤️ PBKS</button>
+    <button class="tbtn" data-team="Rajasthan Royals" data-emoji="RR" data-color="pink">🩷 RR</button>
+    <button class="tbtn" data-team="Sunrisers Hyd." data-emoji="SRH" data-color="amber">🧡 SRH</button>
+    <button class="tbtn" data-team="Gujarat Titans" data-emoji="GT" data-color="teal">💙 GT</button>
+    <button class="tbtn" data-team="Lucknow Super Giants" data-emoji="LSG" data-color="teal">💙 LSG</button>
+  </div>
+
+  <div class="sec">Historic Moments (pick up to 4)</div>
+  <div class="tabs" id="moment-tabs">
+    <button class="tab active" data-mtype="victories">🏆 Victories</button>
+    <button class="tab" data-mtype="player">⭐ Legends</button>
+    <button class="tab" data-mtype="ipl">🏏 IPL</button>
+  </div>
+  <div id="victories-moments" class="mgrid">
+    <button class="mbtn" data-m="2011 WC Win" data-y="2011"><b>2011 WC Win</b><span>Dhoni's six</span></button>
+    <button class="mbtn" data-m="2007 T20 WC" data-y="2007"><b>2007 T20 WC</b><span>First T20 champs</span></button>
+    <button class="mbtn" data-m="1983 WC Win" data-y="1983"><b>1983 WC Win</b><span>Kapil's Devils</span></button>
+    <button class="mbtn" data-m="2013 CT Win" data-y="2013"><b>2013 CT Win</b><span>Champions Trophy</span></button>
+    <button class="mbtn" data-m="2024 T20 WC" data-y="2024"><b>2024 T20 WC</b><span>Rohit's team</span></button>
+    <button class="mbtn" data-m="IND vs PAK 2022" data-y="2022"><b>IND vs PAK</b><span>Kohli 82* T20 WC</span></button>
+    <button class="mbtn" data-m="Asia Cup 2023" data-y="2023"><b>Asia Cup 2023</b><span>India champions</span></button>
+    <button class="mbtn" data-m="2023 WC Final" data-y="2023"><b>2023 WC Final</b><span>Ahmedabad</span></button>
+  </div>
+  <div id="player-moments" class="mgrid" style="display:none">
+    <button class="mbtn" data-m="Sachin 100 100s" data-y="2012"><b>Sachin 100 100s</b><span>Bangladesh 2012</span></button>
+    <button class="mbtn" data-m="Dhoni&#39;s Six" data-y="2011"><b>Dhoni's Six</b><span>WC final shot</span></button>
+    <button class="mbtn" data-m="Kohli 50th 100" data-y="2023"><b>Kohli 50th 100</b><span>WC 2023</span></button>
+    <button class="mbtn" data-m="Kapil&#39;s 175*" data-y="1983"><b>Kapil's 175*</b><span>vs Zimbabwe</span></button>
+    <button class="mbtn" data-m="Rohit 264" data-y="2014"><b>Rohit 264</b><span>Highest ODI score</span></button>
+    <button class="mbtn" data-m="Yuvraj 6 Sixes" data-y="2007"><b>Yuvraj 6 Sixes</b><span>vs England T20</span></button>
+    <button class="mbtn" data-m="Bumrah Hat-trick" data-y="2019"><b>Bumrah Hat-trick</b><span>vs WI 2019</span></button>
+    <button class="mbtn" data-m="Desert Storm" data-y="1998"><b>Desert Storm</b><span>Sachin vs AUS 1998</span></button>
+    <button class="mbtn" data-m="Kohli Chase 183" data-y="2012"><b>Kohli Chase 183</b><span>vs PAK 2012</span></button>
+    <button class="mbtn" data-m="Dhoni Retires" data-y="2020"><b>Dhoni Retires</b><span>Aug 15, 2020</span></button>
+  </div>
+  <div id="ipl-moments" class="mgrid" style="display:none">
+    <button class="mbtn" data-m="CSK 5th Title" data-y="2023"><b>CSK 5th Title</b><span>2023 IPL</span></button>
+    <button class="mbtn" data-m="MI 5 Titles" data-y="2020"><b>MI 5 Titles</b><span>Most IPL wins</span></button>
+    <button class="mbtn" data-m="KKR 2024 Title" data-y="2024"><b>KKR 2024</b><span>3rd IPL crown</span></button>
+    <button class="mbtn" data-m="Gayle 175*" data-y="2013"><b>Gayle 175*</b><span>Fastest IPL 100</span></button>
+    <button class="mbtn" data-m="Dhoni Last Six" data-y="2023"><b>Dhoni Last Six</b><span>CSK final 2023</span></button>
+    <button class="mbtn" data-m="GT Debut Title" data-y="2022"><b>GT Debut Title</b><span>Champions yr 1</span></button>
+    <button class="mbtn" data-m="SRH 2016 Title" data-y="2016"><b>SRH 2016</b><span>Warner's SRH</span></button>
+    <button class="mbtn" data-m="RCB Kohli 973" data-y="2016"><b>RCB Chase</b><span>Kohli 973 runs</span></button>
+  </div>
+  <div class="field">
+    <div class="lbl">Selected (<span id="count">0</span>/4)</div>
+    <div class="stags" id="stags"><span style="font-size:10px;color:#64748b">none yet</span></div>
+  </div>
+
+  <div class="sec">Card Style</div>
+  <div class="field"><div class="lbl">Card Colour</div>
+    <div class="cbtn-row" id="color-row">
+      <button class="cbtn active" data-color="blue" style="background:#185FA5" aria-label="Blue"></button>
+      <button class="cbtn" data-color="green" style="background:#3B6D11" aria-label="Green"></button>
+      <button class="cbtn" data-color="red" style="background:#A32D2D" aria-label="Red"></button>
+      <button class="cbtn" data-color="amber" style="background:#854F0B" aria-label="Amber"></button>
+      <button class="cbtn" data-color="purple" style="background:#534AB7" aria-label="Purple"></button>
+      <button class="cbtn" data-color="teal" style="background:#0F6E56" aria-label="Teal"></button>
+      <button class="cbtn" data-color="coral" style="background:#993C1D" aria-label="Coral"></button>
+      <button class="cbtn" data-color="pink" style="background:#993556" aria-label="Pink"></button>
+    </div>
+  </div>
+</div>
+
+<div class="card-wrap">
+  <div class="lbl" style="margin-bottom:6px">Preview</div>
+  <canvas id="cc" width="280" height="520" style="width:100%;display:block;border-radius:10px"></canvas>
+  <button class="gen-btn" id="gen-btn">🔄 Generate Card</button>
+  <button class="dl-btn" id="dl-btn">⬇️ Download PNG</button>
+</div>
+</div>
+
+<script>
+const C={
+  blue:{bg:'#185FA5',dk:'#0C447C',ac:'#85B7EB'},
+  green:{bg:'#3B6D11',dk:'#27500A',ac:'#97C459'},
+  red:{bg:'#A32D2D',dk:'#791F1F',ac:'#F09595'},
+  amber:{bg:'#854F0B',dk:'#633806',ac:'#EF9F27'},
+  purple:{bg:'#534AB7',dk:'#3C3489',ac:'#AFA9EC'},
+  teal:{bg:'#0F6E56',dk:'#085041',ac:'#5DCAA5'},
+  coral:{bg:'#993C1D',dk:'#712B13',ac:'#F0997B'},
+  pink:{bg:'#993556',dk:'#72243E',ac:'#ED93B1'},
+};
+let S={name:'Cricket Fan',title:'Super Fan',player:'Virat Kohli',since:'2011',city:'Prayagraj',jersey:'18',matches:'120',stadium:'5',role:'Batter Fan',quote:"Cricket is not just a game, it's a religion!",team:'India',teamCode:'IND',color:'blue',photo:null,moments:[]};
+const cv=document.getElementById('cc');
+const cx=cv.getContext('2d');
+function rr(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.lineTo(x+w-r,y);cx.quadraticCurveTo(x+w,y,x+w,y+r);cx.lineTo(x+w,y+h-r);cx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);cx.lineTo(x+r,y+h);cx.quadraticCurveTo(x,y+h,x,y+h-r);cx.lineTo(x,y+r);cx.quadraticCurveTo(x,y,x+r,y);cx.closePath();}
+function wt(text,x,y,mw,lh,ml){const ws=text.split(' ');let l='',ls=[];for(let w of ws){const t=l+(l?' ':'')+w;if(cx.measureText(t).width>mw&&l){ls.push(l);l=w;}else l=t;}if(l)ls.push(l);const d=ml?ls.slice(0,ml):ls;d.forEach((ln,i)=>cx.fillText(ln,x,y+i*lh));return d.length;}
+function draw(){
+  const c=C[S.color];const W=280,H=520;
+  cx.clearRect(0,0,W,H);cx.fillStyle=c.bg;rr(0,0,W,H,12);cx.fill();
+  cx.fillStyle='rgba(0,0,0,0.15)';cx.beginPath();cx.moveTo(0,H*0.42);cx.lineTo(W,H*0.38);cx.lineTo(W,H);cx.lineTo(0,H);cx.closePath();cx.fill();
+  cx.fillStyle='rgba(255,255,255,0.04)';for(let i=0;i<4;i++){cx.beginPath();cx.arc(W-20+i*8,30+i*12,40+i*16,0,Math.PI*2);cx.fill();}
+  const pr=44,pcx=W/2,pcy=pr+16;
+  cx.strokeStyle=c.ac;cx.lineWidth=2.5;cx.beginPath();cx.arc(pcx,pcy,pr+5,0,Math.PI*2);cx.stroke();
+  cx.strokeStyle='rgba(255,255,255,0.18)';cx.lineWidth=1.5;cx.beginPath();cx.arc(pcx,pcy,pr+10,0,Math.PI*2);cx.stroke();
+  if(S.photo){cx.save();cx.beginPath();cx.arc(pcx,pcy,pr,0,Math.PI*2);cx.clip();cx.drawImage(S.photo,pcx-pr,pcy-pr,pr*2,pr*2);cx.restore();}
+  else{cx.save();cx.beginPath();cx.arc(pcx,pcy,pr,0,Math.PI*2);cx.fillStyle=c.dk;cx.fill();cx.fillStyle=c.ac;cx.font='bold 26px sans-serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(S.name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase(),pcx,pcy);cx.restore();}
+  const jx=pcx+pr,jy=pcy-pr+2;
+  cx.fillStyle=c.ac;rr(jx-11,jy,22,14,7);cx.fill();
+  cx.fillStyle=c.dk;cx.font='bold 8px sans-serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText('#'+S.jersey,jx,jy+7);cx.textBaseline='alphabetic';
+  const ny=pcy+pr+18;
+  cx.fillStyle='#fff';cx.font='bold 15px sans-serif';cx.textAlign='center';cx.fillText(S.name,W/2,ny);
+  cx.fillStyle=c.ac;cx.font='500 9px sans-serif';cx.fillText(S.title.toUpperCase(),W/2,ny+13);
+  cx.fillStyle='rgba(255,255,255,0.14)';rr(W/2-28,ny+17,56,14,7);cx.fill();
+  cx.fillStyle='#fff';cx.font='bold 8px sans-serif';cx.textAlign='center';cx.fillText(S.teamCode+' — '+S.team.substring(0,10),W/2,ny+27);
+  cx.fillStyle=c.ac;rr(W/2-24,ny+35,48,13,6);cx.fill();
+  cx.fillStyle=c.dk;cx.font='bold 7px sans-serif';cx.textAlign='center';cx.fillText(S.role.toUpperCase(),W/2,ny+44);
+  const div1=ny+56;
+  cx.strokeStyle='rgba(255,255,255,0.14)';cx.lineWidth=0.5;cx.setLineDash([3,3]);cx.beginPath();cx.moveTo(16,div1);cx.lineTo(W-16,div1);cx.stroke();cx.setLineDash([]);
+  const pad=14,cw=(W-pad*2-6)/2;
+  function sb(lbl,val,x,y){cx.fillStyle='rgba(255,255,255,0.08)';rr(x,y,cw,26,4);cx.fill();cx.fillStyle=c.ac;cx.font='7px sans-serif';cx.textAlign='left';cx.fillText(lbl,x+5,y+9);cx.fillStyle='#fff';cx.font='bold 10px sans-serif';let d=val;while(cx.measureText(d).width>cw-8&&d.length>2)d=d.slice(0,-1);if(d!==val)d=d.slice(0,-1)+'...';cx.fillText(d,x+5,y+20);}
+  const r1=div1+8;
+  sb('FAV PLAYER',S.player,pad,r1);sb('CITY',S.city,pad+cw+6,r1);
+  sb('FAN SINCE',S.since,pad,r1+32);sb('MATCHES',S.matches,pad+cw+6,r1+32);
+  sb('STADIUM VISITS',S.stadium,pad,r1+64);sb('CARD NO.','#'+S.name.replace(/\s/g,'').substring(0,3).toUpperCase()+(parseInt(S.since||2000)%1000).toString().padStart(3,'0'),pad+cw+6,r1+64);
+  const div2=r1+98;
+  cx.strokeStyle='rgba(255,255,255,0.14)';cx.lineWidth=0.5;cx.setLineDash([3,3]);cx.beginPath();cx.moveTo(16,div2);cx.lineTo(W-16,div2);cx.stroke();cx.setLineDash([]);
+  const my=div2+10;
+  cx.fillStyle=c.ac;cx.font='7px sans-serif';cx.textAlign='left';cx.fillText('MY CRICKET MOMENTS',pad,my);
+  const moms=S.moments.length>0?S.moments:[{m:'No moment selected',y:''}];
+  const mc=moms.length===1?1:2;const mw=moms.length===1?W-pad*2:(W-pad*2-5)/2;
+  moms.slice(0,4).forEach((mo,i)=>{const mx2=pad+(i%mc)*(mw+5);const my2=my+6+(Math.floor(i/mc)*26);cx.fillStyle='rgba(255,255,255,0.09)';rr(mx2,my2,mw,21,4);cx.fill();cx.strokeStyle=c.ac;cx.lineWidth=0.4;rr(mx2,my2,mw,21,4);cx.stroke();cx.fillStyle='#fff';cx.font='bold 8.5px sans-serif';cx.textAlign='left';cx.fillText(mo.m,mx2+5,my2+9);cx.fillStyle=c.ac;cx.font='7px sans-serif';cx.fillText(mo.y,mx2+5,my2+18);});
+  const mr=Math.ceil(moms.slice(0,4).length/2);const qy=my+6+mr*26+10;
+  cx.fillStyle='rgba(255,255,255,0.42)';cx.font='italic 8px serif';cx.textAlign='center';wt('"'+S.quote+'"',W/2,qy,W-36,12,2);
+  cx.fillStyle='rgba(255,255,255,0.16)';cx.font='7px sans-serif';cx.textAlign='center';cx.fillText('OFFICIAL CRICKET FAN CARD  •  '+S.city.toUpperCase(),W/2,H-10);
+}
+function sync(){S.name=document.getElementById('fan-name').value||'Cricket Fan';S.title=document.getElementById('fan-title').value||'Super Fan';S.player=document.getElementById('fav-player').value||'Player';S.since=document.getElementById('fan-since').value||'2011';S.city=document.getElementById('city').value||'India';S.jersey=document.getElementById('jersey').value||'0';S.matches=document.getElementById('matches').value||'0';S.stadium=document.getElementById('stadium').value||'0';S.quote=document.getElementById('fan-quote').value||'Cricket is life!';}
+function updateMUI(){const el=document.getElementById('stags');document.getElementById('count').textContent=S.moments.length;if(!S.moments.length){el.innerHTML='<span style="font-size:10px;color:#64748b">none yet</span>';return;}el.innerHTML=S.moments.map((m,i)=>`<span class="stag">${m.m}<button onclick="rmm(${i})" aria-label="remove">×</button></span>`).join('');}
+window.rmm=function(i){const m=S.moments[i];S.moments.splice(i,1);document.querySelectorAll('.mbtn').forEach(b=>{if(b.dataset.m===m.m)b.classList.remove('active');});updateMUI();sync();draw();};
+document.querySelectorAll('.mgrid').forEach(g=>{g.addEventListener('click',e=>{const b=e.target.closest('.mbtn');if(!b)return;const mo={m:b.dataset.m,y:b.dataset.y};const idx=S.moments.findIndex(x=>x.m===mo.m);if(idx>-1){S.moments.splice(idx,1);b.classList.remove('active');}else{if(S.moments.length>=4)return;S.moments.push(mo);b.classList.add('active');}updateMUI();sync();draw();});});
+document.getElementById('moment-tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;document.querySelectorAll('#moment-tabs .tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['victories','player','ipl'].forEach(t=>document.getElementById(t+'-moments').style.display='none');document.getElementById(b.dataset.mtype+'-moments').style.display='grid';});
+document.getElementById('team-tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;document.querySelectorAll('#team-tabs .tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('national-teams').style.display=b.dataset.type==='national'?'grid':'none';document.getElementById('ipl-teams').style.display=b.dataset.type==='ipl'?'grid':'none';});
+['national-teams','ipl-teams'].forEach(id=>{document.getElementById(id).addEventListener('click',e=>{const b=e.target.closest('.tbtn');if(!b)return;document.querySelectorAll('#national-teams .tbtn,#ipl-teams .tbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');S.team=b.dataset.team;S.teamCode=b.dataset.emoji;if(b.dataset.color){document.querySelectorAll('.cbtn').forEach(x=>x.classList.remove('active'));const cb=document.querySelector(`.cbtn[data-color="${b.dataset.color}"]`);if(cb){cb.classList.add('active');S.color=b.dataset.color;}}sync();draw();});});
+document.getElementById('role-grid').addEventListener('click',e=>{const b=e.target.closest('.rbtn');if(!b)return;document.querySelectorAll('.rbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');S.role=b.dataset.role;sync();draw();});
+document.getElementById('color-row').addEventListener('click',e=>{const b=e.target.closest('.cbtn');if(!b)return;document.querySelectorAll('.cbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');S.color=b.dataset.color;sync();draw();});
+['fan-name','fan-title','fav-player','fan-since','city','jersey','matches','stadium','fan-quote'].forEach(id=>{document.getElementById(id).addEventListener('input',()=>{sync();draw();});});
+document.getElementById('photo-input').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{const img=new Image();img.onload=()=>{S.photo=img;const p=document.getElementById('photo-preview');p.src=ev.target.result;p.style.display='block';document.querySelector('.photo-area span').style.display='none';sync();draw();};img.src=ev.target.result;};r.readAsDataURL(f);});
+document.getElementById('gen-btn').addEventListener('click',()=>{sync();draw();});
+document.getElementById('dl-btn').addEventListener('click',()=>{sync();draw();const a=document.createElement('a');a.download='cricket-fan-card.png';a.href=cv.toDataURL('image/png');a.click();});
+draw();
+</script>
+
+
+</body></html>
